@@ -1,0 +1,253 @@
+IDEA 介绍及安装
+
+开发公司JetBrains
+
+最具备沉侵式的IDE
+
+idea.exe.vmoptions 主要是配置虚拟机的一些配置
+
+idea.properties idea配置文件
+
+system 文件夹 是idea与项目文件的一个桥梁目录，里面有缓存
+
+主题，字体，编辑区主题，文件编码，乱码问题
+
+
+主题：settings->Appearance & Behavior -> Appearance->Theme
+
+字体：settings->Appearance & Behavior -> Appearance->Override default fonts by
+
+编辑区主题：settings->Editor->Colors & Fonts
+
+编辑区字体：settings->Editor->Colors & Fonts->Font
+
+控制台字体修改：settings->Editor->Color & Fonts-> Console Font
+
+增加菜单按钮：view->Toolbar / Tool Buttons
+
+编码格式：settings->Editor->File Encodings
+
+标记为资源目录：右键->Mark Directory as ->Sources Root
+
+搜索文件：ctrl + n
+
+清理缓存和索引的入口：file->Invalidate Caches/Restart
+
+历史记录：idea配置文件->system->LocalHistory 清理缓存记得备份
+
+三种编译方式：
+
+Compile: 对选定的Java类文件进行强制编译，不管目标是否被修改过
+
+rebuild: 对选定的目标进行强制编译 Build
+
+make:使用最多的编译操作，对我们选定的进行编译（只会编译到修改过的文件）
+
+编译之前配置：Run/Debug Configurations
+
+编译之前触发事件：Before launch
+
+编译设置：settings->Build,Execution,Deployment->complier
+
+工程是否要自动编译：settings->Build,Execution,Deployment->complier
+		->Make project automatically
+
+构建过程中堆的大小设置：Build process heap size 建议设置1500
+编译报错：outOfMemery 可以修改这个地方
+
+对文件进行排除：Excludes 怕其他未开发完的功能有影响
+
+java编译设置：java Complier jdk版本
+
+针对各个模块不同jdk：Per-module bytecode version
+
+下载git：https://git-scm.com/downloads
+
+配置git从远程服务器下载代码 VCS->checkout from cersion control->git
+
+把当前项目用git提交：右键->git->Commit Directory
+
+添加到本地仓库：右键->git->add
+
+提交到远程仓库：右键->git->commit file
+
+git提交前配置：
+
+before commit：
+Reformat code: 从新把代码格式化
+Rearrange code: 代码行距，字体行距有个固定的大小
+Optimize imports: 优化导入，删除没有依赖的包之类
+
+Commit: 提交到本地仓库
+Commit and Push: 提交到本地仓库和远程仓库
+
+显示历史记录：右键->git->show History
+
+回滚：右键->git->Revert
+
+git细节化操作：右键->git->Repository
+
+创建分支：Branches
+
+打标签：Tag
+
+暂存当前的操作: Stash Changes
+
+git stash: 备份当前的工作区的内容，从最近的一次提交中读取相关内容，让工作区保证和上次提交的内容一致。同时，将当前的工作区内容保存到Git栈中
+
+
+git stash pop: 从Git栈中读取最近一次保存的内容，恢复工作区的相关内容。由于可能存在多个Stash的内容，所以用栈来管理，pop会从最近的一个stash中读取内容并恢复
+
+git stash list: 显示Git栈内的所有备份，可以利用这个列表来决定从那个地方恢复
+
+git stash clear: 清空Git栈。此时使用gitg等图形化工具会发现，原来stash的哪些节点都消失了
+
+将当前版本回滚到某一个版本：Reset HEAD
+
+把远程仓库里的代码下载下来（智能合并）：Pull
+
+把本地的代码提交到远程仓库：Push
+
+直接下载下来：Fetch
+
+idea快捷操作git：右下角Git:master
+
+远程分支：Remote Branches 远程分支
+
+通过命令操作git: 打开项目文件夹有个隐藏文件夹.git， 右键，git Bash Here
+
+实时模板配置：settings->Editor->Live Templates
+
+调用实时代码：Tab / ctrl + J
+
+maven项目pom自动依赖导入：settings->Build,Execution,Deployment
+			->Build Tools->Maven->Importing
+			->import Maven projects automatically
+
+是否自动下载源码和文档：Automatically download
+
+配置导入时候虚拟机需要的参数：VM options for importer
+
+右侧Maven Project：
+
+Reimport All Maven Projects :重新导入maven项目
+
+Generate Sources and Update Folders For All Projects: 源代码重新去编译
+
+Download Sources and/or Documentation 下载第三方依赖包及文档
+
+Execute Maven Goal 运行maven命令
+
+Toggle Offline Mode 如果关闭无法同远程仓库保持连接
+
+Toggle "Skip Tests" Mode 允许跳过测试模式
+
+Show Dependencies 展示依赖关系
+
+配置tomcat 菜单栏中间下拉箭头->Edit Configurations
+		加号->Tomcat Server->Local
+
+Deployment->加号->添加项目
+
+war / war exploded 区别：
+需要做热部署，改了一个java文件需要在不重启的情况下在tomcat内生效，用exploded，除了xml文件
+希望做到热部署的话，返回Server On 'Update' action 选择 Update class and resources,
+On frame deactivation  选择 Update class and resources
+
+项目结构配置：file->Project structure
+
+添加依赖：file->Project structure->Project Settings->Libraries 可以添加外部依赖
+
+当前项目所依赖的外部模块：file->Project structure->Project Settings->Facets
+
+IDEA debug 
+
+F7 在debug模式进入下一步，如果当前行断点是一个方法，则进入方法体内，如果该方法还有方法，
+则会进入内嵌的方法体中。
+
+F8 在debug模式进入下一步，如果当前行断点是一个方法，则不进入方法体内
+
+F9 恢复程序运行，如果该断点下面代码还有断点，则停到下一个断点上。
+
+alt + F8 搜索debug模式下里面的变量值
+
+代码提示：Code Completion
+
+修改代码提示：settings->Keymap
+
+设置大小写区分：settings->Editor->General->Code Completion->Case sensitive completion
+		All ：完全区分大小写
+		None：不区分大小写
+		First letter：首字母区分大小写
+
+代码的检查级别：右下角小头像：
+Inspections：最高级别的检查，拼写，语法，变量使用，方法调用都会检查
+Syntax: 拼写和语法检查
+None：完全不检查
+
+自动import包的功能：settings->Editor->General->Auto Import 
+
+设置自动优化功能：Optimize imports on the fly
+
+自动导入包同步提示：Alt + Enter
+
+省电模式：File->Power Save Mode 开启就会关掉代码检查和代码提示功能
+
+查找定位：ctrl+shift+n 名称+行数
+
+窗口复原：左下角：Restore Layout
+
+窗口自动隐藏：窗口右侧齿轮->Pinned Mode
+
+右侧文件打开左侧窗口自动显示：Autoscroll From Source
+
+左侧文件打开右侧自动显示：Autoscroll To Source
+
+打开项目是否新建一个窗口：settings->Appearance & Behavior
+			->System Settings->Project Opening
+
+显示代码历史修改记录：选中一段代码->右键->Local History->Show History For Selection
+
+自动生成get/set,toString方法Alt + Insert
+
+编辑快捷键：
+
+快速删除一行：ctrl + y
+
+复制一行：ctrl + d
+
+注释一行：ctrl + /
+
+选择块代码：ctrl + w
+
+反向选中代码：ctrl + shift + w
+
+前后单词移动光标：ctrl + left / ctrl + right
+
+查找类或者资源：ctrl + n 提供模糊匹配
+
+连续按2次shift：全局搜索
+
+类内部搜索关键字：ctrl + f
+
+代码的格式化：
+
+格式化import：ctrl + alt + o
+
+格式化代码：ctrl + alt + l
+
+切换窗口：ctrl + tab
+
+打开最近打开的文件：ctrl + e
+
+打开我们最近编辑过的文件：ctrl + shift + e
+
+自我修复：alt + enter
+
+
+
+
+
+
+
+

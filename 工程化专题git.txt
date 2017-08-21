@@ -1,0 +1,122 @@
+
+git stash: 备份当前的工作区的内容，从最近的一次提交中读取相关内容，让工作区保证和上次提交的内容一致。同时，将当前的工作区内容保存到Git栈中
+
+
+git stash pop: 从Git栈中读取最近一次保存的内容，恢复工作区的相关内容。由于可能存在多个Stash的内容，所以用栈来管理，pop会从最近的一个stash中读取内容并恢复
+
+git stash list: 显示Git栈内的所有备份，可以利用这个列表来决定从那个地方恢复
+
+git stash clear: 清空Git栈。此时使用gitg等图形化工具会发现，原来stash的哪些节点都消失了
+
+
+如果系统中有一些配置文件在服务器上做了配置修改,然后后续开发又新添加一些配置项的时候,
+
+在发布这个配置文件的时候,会发生代码冲突:
+
+
+如果希望保留生产服务器上所做的改动,仅仅并入新配置项, 处理方法如下:
+
+git stash
+git pull
+git stash pop
+
+然后可以使用Git diff -w +文件名 来确认代码自动合并的情况.
+
+反过来,如果希望用代码库中的文件完全覆盖本地工作版本. 方法如下:
+
+git reset --hard
+git pull
+其中git reset是针对版本,如果想针对文件回退本地修改
+
+世纪难题 git 和 svn 的区别
+
+CVSs Centralized : centralized version control system 集中式版本控制系统
+
+svn底层实现是记录操作的变化，没有变化的代码新版本还是原来的
+
+问题：
+1. push / pull 需要联网
+2. 如果server硬盘坏了怎么办
+
+DVCSs Distributed : 
+
+git 同步的不是变化而是所有的操作和内容，没有变化存储之前的引用
+
+去中心化
+
+commit 后面跟的40位编码为校验和
+
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git 
+http://windows.github.com
+http://mac.github.com
+http://git-scm.com/download/linux  
+
+
+git config –-global user.name ‘xx’
+git config –-global user.email ‘xx’
+
+生成SSH KEY ssh-keygen -t rsa -C 'james@gupaoedu.com
+
+git 信息
+# Default github user(first@mail .com)
+Host github.com
+ HostName github.com
+ User git 
+ IdentityFile C:/Users/Administrator/.ssh/id_rsa
+
+
+alias.ac=!git add -A && git commit -m
+
+Working Directory（什么也没干的时候）
+ -> Staging Area （add命令的时候）
+-> .git dircectory
+
+Untracked -> Unmodified -> Modified -> Staged
+
+git add . 添加当前目录下的所有文件
+
+git commit -m '' 提交添加描述信息
+
+git status 查看当前状态
+
+git 下载文件 git clone
+
+把本地项目推送到远端
+
+1. git init 把本地用git管理起来
+2. git remote add origin 	git@gitchina.net:gupaoedu_com_vip/test10.git 把本地与远端关联起开
+
+3 git push -u origin master push上去
+
+git checkout -b dev 创建分支
+
+查看当前配置有哪些远程仓库，可以用git remote,它会列出每个远程库的简短名字.在克隆完某个项目后,至少可以看到一个名为 origin 的远程库,git 默认使用这个名字来标识你所克隆的原始仓库
+
+git remote 不带参数，列出已经存在的远程分支
+
+git remote -v 远程仓库存在的分支
+
+touch+文件名，直接新建一个文件
+
+echo "our first git repository" >> file
+
+git commit -a -m "" 这条的命令是在你已经add了一个或多个文件过之后，然后修改了这些文件，就可以使用该命令进行提交
+
+
+https://git.oschina.net/gupao-v/gupaoedu-mybatis.git
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
